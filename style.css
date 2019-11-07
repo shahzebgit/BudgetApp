@@ -13,6 +13,11 @@
     display: table;
     clear: both;
 }
+.clearfix::before{
+        content: "";
+        display: table;
+        clear: both;
+}
 
 body {
     color: #555;
@@ -177,19 +182,27 @@ body {
 
 /***** LISTS *****/
 .container {
-    width: 1000px;
+    width: 1250px;
     margin: 60px auto;
 }
 
 .income {
     float: left;
-    width: 475px;
+    width:350px;
     margin-right: 50px;
 }
 
 .expenses {
     float: left;
-    width: 475px;
+    width:350px;
+    margin-right: 50px;
+}
+
+.savings{
+    float: left;
+    width: 350px;
+    
+    
 }
 
 h2 {
@@ -199,8 +212,9 @@ h2 {
     margin-bottom: 15px;
 }
 
-.icome__title { color: #28B9B5; }
+.income__title { color: #28B9B5; }
 .expenses__title { color: #FF5049; }
+.savings__title{ color:#A22EEE;}
 
 .item {
     padding: 13px;
@@ -241,6 +255,11 @@ h2 {
 .expenses .item__delete--btn {
     color: #FF5049;
 }
+.savings .item__value,
+.savings .item__delete--btn{
+    color: #A22EEE;
+}
+
 
 
 .item__delete {
