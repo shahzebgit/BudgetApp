@@ -57,7 +57,7 @@ var budgetController = (function() {
       var newItem, ID;
 
       if (data.allItems[type].length > 0) {
-        ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+        ID = [data.allItems[type].length - 1] + 1;
       } else {
         ID = 0;
       }
@@ -81,6 +81,16 @@ var budgetController = (function() {
     deleteItem: function(type, id) {
       var ids, index;
       //
+      if (type=="save"){
+        UIController.addListItems(data.allItems.save[id],'inc');
+        delete data.allItems.save[id];
+        calculateTotal("inc");
+        console.log(data.allItems.save);
+    }
+    else{
+      delete data.allItems.save[id];
+      calculateTotal(type);
+
       ids = data.allItems[type].map(function(current) {
         return current.id;
       });
@@ -89,6 +99,9 @@ var budgetController = (function() {
       if (index !== -1) {
         data.allItems[type].splice(index, 1);
       }
+
+      
+    }
     },
 
     calculateBudget: function() {
@@ -106,12 +119,8 @@ var budgetController = (function() {
         
       // Calculate the budget: income - savings
        
-        
-     
-
-        
-        
-     
+        data.budget = data.budget - data.totals.save;
+    
       //calculate the percentage
       if (data.totals.inc > 0) {
         data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
