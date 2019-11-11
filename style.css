@@ -13,11 +13,7 @@
     display: table;
     clear: both;
 }
-.clearfix::before{
-        content: "";
-        display: table;
-        clear: both;
-}
+
 
 body {
     color: #555;
@@ -31,6 +27,8 @@ body {
 .right { float: right; }
 .red { color: #FF5049 !important; }
 .red-focus:focus { border: 1px solid #FF5049 !important; }
+.purple{color: #A22EEE !important;}
+.purple-focus:focus { border: 1px solid #A22EEE !important;}
 
 /**********************************************
 *** TOP PART
